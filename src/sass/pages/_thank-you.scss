@@ -1,0 +1,13 @@
+.thankyou-page {
+  h1 {
+    text-align:center;
+  }
+  .thankyou-page__message {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    h2 {
+      margin: 0px;
+    }
+  }
+}

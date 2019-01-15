@@ -1,0 +1,20 @@
+{
+  "buttons" : {
+    "addToCart" : "Add",
+    "seeMore" : "More"
+  },
+  "currency" : {
+    "full" : "DOLAR",
+    "short" : "$"
+  },
+  "cartTitles" :  ["Image", "Title", "Amount", "Price", "Total"],
+  "messages" : {
+    "cart" : {
+      "emptyCart" : "Your cart is empty",
+      "total" : "Total"
+    },
+    "general" : {
+      "backShop" : "Back to the shop"
+    }
+  }
+}

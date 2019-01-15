@@ -1,0 +1,8 @@
+@import '_import.scss';
+
+.flex {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content:flex-start;
+}
