@@ -1,12 +1,13 @@
 .cart-page {
   table {
     img {
-      max-width:50px;
+      max-width: 50px;
     }
     @media all and(max-width:991px) {
-    td,th {
-      height:55px;
+      td,
+      th {
+        height: 55px;
+      }
     }
-  }
   }
 }

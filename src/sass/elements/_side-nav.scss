@@ -1,20 +1,19 @@
 .sidenav {
   .cart-icon {
-    display:flex;
-    font-size:2.5em;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    font-size: 2.5em;
+    justify-content: center;
+    align-items: center;
     .cart-icon__amount {
-      margin-right:1em;
+      margin-right: 1em;
     }
     a {
-      display:flex;
-      justify-content:center;
-      align-items:center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .material-icons {
-        font-size:1.3em;
+        font-size: 1.3em;
       }
     }
-
   }
 }

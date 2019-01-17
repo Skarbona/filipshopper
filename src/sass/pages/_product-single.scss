@@ -3,21 +3,21 @@
     img {
       margin: 2.8rem 0 1.68rem 0;
     }
-    @media all and (max-width:600px) {
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+    @media all and (max-width: 600px) {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
   .product-single-page__right {
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-end;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
     flex-direction: column;
-    @media all and (max-width:600px) {
-      align-items:center;
-      justify-content:center;
-      text-align:center;
+    @media all and (max-width: 600px) {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 }
