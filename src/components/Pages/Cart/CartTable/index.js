@@ -5,30 +5,30 @@ import TableTh from "./TableTh";
 import TableProducts from "./TableProducts";
 import Button from "../../../Elements/Button";
 import CartSummary from "./CartSummary";
-import { addItemToCart, removeItemFromCart } from "../../../../actions/cart";
+import * as cartEpics from "../../../../store/cart/epic";
 
 const CartTable = ({
-  cartTotal,
-  cartProducts,
-  translations,
-  addItemToCart,
-  removeItemFromCart
-}) => {
+                     cartTotal,
+                     cartProducts,
+                     translations,
+                     addItemToCart,
+                     removeItemFromCart
+                   }) => {
   if (cartTotal > 0) {
     return (
       <React.Fragment>
         <table className="striped responsive-table">
           <tbody>
-            <TableTh titles={translations} />
-            <TableProducts
-              addItemToCart={addItemToCart}
-              removeItemFromCart={removeItemFromCart}
-              products={cartProducts.products}
-              translations={translations}
-            />
+          <TableTh titles={translations}/>
+          <TableProducts
+            addItemToCart={addItemToCart}
+            removeItemFromCart={removeItemFromCart}
+            products={cartProducts.products}
+            translations={translations}
+          />
           </tbody>
         </table>
-        <CartSummary translations={translations} total={cartTotal} />
+        <CartSummary translations={translations} total={cartTotal}/>
         <Button
           to="/checkout"
           className="btn-large blue darken-3"
@@ -55,5 +55,5 @@ const mapStateToProps = ({ cart, init: { translations } }) => {
 
 export default connect(
   mapStateToProps,
-  { addItemToCart, removeItemFromCart }
+  { addItemToCart: cartEpics.addItemToCart, removeItemFromCart: cartEpics.removeItem }
 )(CartTable);

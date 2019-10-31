@@ -4,7 +4,7 @@ import _ from "lodash";
 
 import MainContent from "./Elements/MainContent";
 import SinglePageCollapse from "./Elements/SinglePageCollapse.js";
-import { addItemToCart } from "../../../actions/cart";
+import * as cartEpics from "../../../store/cart/epic";
 
 const ProductSinglePage = ({ product, buttons, addItemToCart, currency }) => {
   if (product) {
@@ -56,5 +56,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { addItemToCart }
+  { addItemToCart: cartEpics.addItemToCart }
 )(ProductSinglePage);

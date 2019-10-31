@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setSearchProducts } from "../../../../actions/search";
+import { setSearchProducts } from "../../../../store/actions/search";
 import _ from "lodash";
 
 class Search extends React.Component {

@@ -1,7 +1,7 @@
 import {
     SET_SEARCH_PRODUCTS,
     SET_SEARCHING_STATUS,
-} from '../actions/'
+} from '../actions/index'
 
 export default (state = { searching: false }, action) => {
   switch (action.type) {

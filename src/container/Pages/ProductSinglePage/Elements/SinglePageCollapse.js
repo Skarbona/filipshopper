@@ -2,7 +2,7 @@ import React from "react";
 import M from "materialize-css";
 import { connect } from "react-redux";
 
-import { initReviews } from "../../../../actions/reviews";
+import { initReviews } from "../../../../store/actions/reviews";
 
 import SingleReview from "../../../../components/Pages/ProductSinglePage/Elements/SingleReview";
 

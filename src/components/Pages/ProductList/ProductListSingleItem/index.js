@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addItemToCart } from "../../../../actions/cart";
+import * as cartEpics from "../../../../store/cart/epic";
 import { Link } from "react-router-dom";
 
 import Button from "../../../Elements/Button";
@@ -57,5 +57,5 @@ const mapStateToProps = ({ init: { translations } }) => {
 
 export default connect(
   mapStateToProps,
-  { addItemToCart }
+  { addItemToCart: cartEpics.addItemToCart }
 )(ProductListSingleItem);

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import Button from "../../../Elements/Button";
-import { clearCart } from "../../../../actions/cart";
+import * as cartActions from "../../../../store/cart/actions";
 
 const CheckoutForm = ({ handleSubmit, pristine, clearCart }) => {
   return (
@@ -54,7 +54,7 @@ const CheckoutForm = ({ handleSubmit, pristine, clearCart }) => {
 
 const CheckoutFormConnect = connect(
   null,
-  { clearCart }
+  { clearCart: cartActions.clearCartAction }
 )(CheckoutForm);
 
 export default reduxForm({

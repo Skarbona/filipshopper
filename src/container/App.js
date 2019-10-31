@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { initProductData, initTranslations } from "../actions/init";
+import { initProductData, initTranslations } from "../store/actions/init";
 
 import Header from "./Header";
 import Pages from "../components/Pages";

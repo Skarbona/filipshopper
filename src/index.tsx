@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import thunk from "redux-thunk";
 
 import App from "./container/App";
-import reducers from "./reducers";
+import reducers from "./store/reducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

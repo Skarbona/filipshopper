@@ -1,4 +1,4 @@
-import { INIT_PRODUCT_DATA, INIT_TRANSLATIONS } from "../actions";
+import { INIT_PRODUCT_DATA, INIT_TRANSLATIONS } from "../actions/index";
 
 export default (state = {}, action) => {
   switch (action.type) {

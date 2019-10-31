@@ -1,4 +1,4 @@
-import { INIT_REVIEWS } from "../actions";
+import { INIT_REVIEWS } from "../actions/index";
 
 export default (state = {}, action) => {
   switch (action.type) {

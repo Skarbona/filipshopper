@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import init from "./init";
-import cart from "./cart";
+import cart from "../cart/reducer";
 import search from "./search";
 import reviews from "./reviews";
 
