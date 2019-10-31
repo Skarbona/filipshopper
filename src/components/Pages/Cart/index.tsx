@@ -1,6 +1,6 @@
 import React from "react";
 
-import PageTitle from "../../Elements/Title/PageTitle";
+import PageTitle from "../../Elements/Title";
 import CartTable from "./CartTable/";
 
 const Cart = () => {

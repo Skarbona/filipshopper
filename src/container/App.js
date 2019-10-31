@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { initProductData, initTranslations } from "../store/actions/init";
@@ -6,24 +6,20 @@ import { initProductData, initTranslations } from "../store/actions/init";
 import Header from "./Header";
 import Pages from "../components/Pages";
 
-class App extends React.Component {
-  componentDidMount = () => {
-    const { initProductData, initTranslations } = this.props;
+export const App = ({ initProductData, initTranslations }) => {
+
+  useEffect(() => {
     initProductData();
     initTranslations();
-  };
+  }, []);
 
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        <div className="container">
-          <Pages />
-        </div>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+      <Header/>
+      <Pages/>
+    </React.Fragment>
+  );
+};
 
 export default withRouter(
   connect(

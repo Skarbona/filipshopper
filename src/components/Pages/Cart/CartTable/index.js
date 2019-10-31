@@ -7,13 +7,15 @@ import Button from "../../../Elements/Button";
 import CartSummary from "./CartSummary";
 import * as cartEpics from "../../../../store/cart/epic";
 
-const CartTable = ({
-                     cartTotal,
-                     cartProducts,
-                     translations,
-                     addItemToCart,
-                     removeItemFromCart
-                   }) => {
+const CartTable = (
+  {
+    cartTotal,
+    cartProducts,
+    translations,
+    addItemToCart,
+    removeItemFromCart
+  }
+) => {
   if (cartTotal > 0) {
     return (
       <React.Fragment>

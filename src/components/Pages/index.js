@@ -10,17 +10,17 @@ import Payment from "../../container/Pages/Payment";
 
 const Pages = () => {
   return (
-    <React.Fragment>
+    <div className="container">
       <Switch>
-        <Route path="/product/:id" component={ProductSinglePage} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/payment" component={Payment} />
-        <Route path="/thankyou" component={ThankYou} />
-        <Route exact path="/" component={ProductList} />
-        <Redirect to="/" />
+        <Route path="/product/:id" component={ProductSinglePage}/>
+        <Route path="/cart" component={Cart}/>
+        <Route path="/checkout" component={Checkout}/>
+        <Route path="/payment" component={Payment}/>
+        <Route path="/thankyou" component={ThankYou}/>
+        <Route exact path="/" component={ProductList}/>
+        <Redirect to="/"/>
       </Switch>
-    </React.Fragment>
+    </div>
   );
 };
 

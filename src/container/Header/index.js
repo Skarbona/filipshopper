@@ -10,7 +10,7 @@ class Header extends React.Component {
     this.sideNav = React.createRef();
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     const { sideNav } = this;
 
     const elems = sideNav.current;

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
+import { filter } from "lodash";
 
 import MainContent from "./Elements/MainContent";
 import SinglePageCollapse from "./Elements/SinglePageCollapse.js";
@@ -37,9 +37,7 @@ const mapStateToProps = (state, ownProps) => {
   let product = null;
   let singleProduct = null;
   if (state.init) {
-    singleProduct = _.filter(state.init.products, function(o) {
-      return o.id === ownProps.match.params.id;
-    });
+    singleProduct = filter(state.init.products, o => o.id === ownProps.match.params.id);
   }
 
   if (singleProduct) {

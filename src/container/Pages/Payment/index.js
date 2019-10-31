@@ -1,7 +1,7 @@
 import React from "react";
 
 import PaymentMethod from "../../../components/Pages/Payment/Methods/";
-import PageTitle from "../../../components/Elements/Title/PageTitle";
+import PageTitle from "../../../components/Elements/Title/";
 import Button from "../../../components/Elements/Button";
 
 const methods = [

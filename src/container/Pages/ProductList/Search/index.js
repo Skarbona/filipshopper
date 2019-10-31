@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setSearchProducts } from "../../../../store/actions/search";
-import _ from "lodash";
+import { filter } from "lodash";
 
 class Search extends React.Component {
   onSearchChange = e => {
     const { products, setSearchProducts } = this.props;
     e.preventDefault();
-    let filteredProducts = _.filter(products, function(o) {
-      return o.title.includes(e.target.value);
-    });
+    let filteredProducts = filter(products, o => o.title.includes(e.target.value));
 
     if (e.target.value) {
       setSearchProducts(filteredProducts);
