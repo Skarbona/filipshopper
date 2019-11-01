@@ -1,11 +1,9 @@
 import axios from "axios";
-import { Action } from "redux";
-import { ThunkAction } from "redux-thunk";
 
-import { IStore } from "../store.interface";
 import * as reviewsActions from "./actions";
+import { EpicType } from "../store";
 
-export const initReviews = (): ThunkAction<void, IStore, null, Action<string>> => async dispatch => {
+export const initReviews = (): EpicType => async dispatch => {
 
   dispatch(reviewsActions.initReviewsAction());
 

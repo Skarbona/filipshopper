@@ -1,5 +1,5 @@
-import { ActionCreator, applyMiddleware, compose, createStore } from "redux";
-import thunk from "redux-thunk";
+import { applyMiddleware, compose, createStore, AnyAction, Action } from "redux";
+import thunk, { ThunkAction, ThunkMiddleware } from "redux-thunk";
 
 import reducers from "./reducer";
 import { IStore } from "./store.interface";
@@ -20,9 +20,10 @@ const storeInitialState: IStore = {
   form: {}
 };
 
+export type EpicType = ThunkAction<void, IStore, any, Action<string>>
 type storeActions = IAppAction | ICartAction | ISearchAction | IReviewsAction;
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export const store = createStore<IStore, storeActions, null, null>(reducers, storeInitialState, composeEnhancers(applyMiddleware(thunk)));
+export const store = createStore<IStore, storeActions, null, AnyAction>(reducers, storeInitialState, composeEnhancers(applyMiddleware(thunk as ThunkMiddleware<IStore, storeActions>)));

@@ -11,6 +11,7 @@ export interface IProduct {
 export interface IProductProps {
   price: number,
   amount: number,
+  image?: string,
   title: string,
   extra: string,
   id: string,

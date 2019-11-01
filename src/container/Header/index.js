@@ -2,7 +2,7 @@ import React from "react";
 import M from "materialize-css";
 import { Link } from "react-router-dom";
 
-import CartIcon from "../../components/Header/CartIcon";
+import CartIcon from "../../components/Header/CartIcon/index";
 
 class Header extends React.Component {
   constructor(props) {

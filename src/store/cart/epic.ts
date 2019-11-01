@@ -1,14 +1,12 @@
 import { IProductProps } from "./cart.types";
-import { ThunkAction } from "redux-thunk";
-import { Action } from "redux";
 
 import * as cartActions from "./actions";
-import { IStore } from "../store.interface";
+import { EpicType } from "../store";
 
 export const addItemToCart = (
   product: IProductProps,
   countBy = 1
-): ThunkAction<void, IStore, null, Action<string>> => (dispatch, getState) => {
+): EpicType => (dispatch, getState) => {
 
   const cart = getState().cart;
 
@@ -29,7 +27,7 @@ export const addItemToCart = (
 export const removeItem = (
   product: IProductProps,
   countBy = 1
-): ThunkAction<void, IStore, null, Action<string>> => (dispatch, getState) => {
+): EpicType => (dispatch, getState) => {
 
   const cart = getState().cart;
 

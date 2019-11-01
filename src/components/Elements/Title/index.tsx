@@ -1,5 +1,7 @@
 import React from "react";
 
-const PageTitle = ({ title = "" }) => <h1> {title} </h1>;
+import { ITitleProps } from "./Title.interface";
+
+const PageTitle = ({ title = "" }: ITitleProps) => <h1> {title} </h1>;
 
 export default PageTitle;
