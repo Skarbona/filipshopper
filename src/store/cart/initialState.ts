@@ -1,6 +1,6 @@
 import { ICartStore } from "./cart.types";
 
-export const initialState: ICartStore = {
+export const cartInitialState: ICartStore = {
   total: 0,
   counter: 0,
   products: {},

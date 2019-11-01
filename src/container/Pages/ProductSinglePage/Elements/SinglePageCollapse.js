@@ -2,7 +2,7 @@ import React from "react";
 import M from "materialize-css";
 import { connect } from "react-redux";
 
-import { initReviews } from "../../../../store/actions/reviews";
+import * as reviewsEpics from "../../../../store/reviews/epic";
 
 import SingleReview from "../../../../components/Pages/ProductSinglePage/Elements/SingleReview";
 
@@ -65,5 +65,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { initReviews }
+  { initReviews: reviewsEpics.initReviews }
 )(SinglePageCollapse);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { initProductData, initTranslations } from "../store/actions/init";
+import * as appEpics from "../store/app/epic";
 
 import Header from "./Header";
 import Pages from "../components/Pages";
@@ -21,9 +21,10 @@ export const App = ({ initProductData, initTranslations }) => {
   );
 };
 
+
 export default withRouter(
   connect(
     null,
-    { initProductData, initTranslations }
+    { initProductData: appEpics.initProductData, initTranslations: appEpics.initTranslations }
   )(App)
 );

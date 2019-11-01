@@ -22,9 +22,9 @@ const ProductList = ({ products, searchProducts }) => {
   );
 };
 
-const mapStateToProps = ({ init, search }) => {
+const mapStateToProps = ({ app, search }) => {
   return {
-    products: init.products,
+    products: app.products,
     searchProducts: search
   };
 };

@@ -3,12 +3,12 @@ import { ThunkAction } from "redux-thunk";
 import { Action } from "redux";
 
 import * as cartActions from "./actions";
-import { IAppStore } from "../store.interface";
+import { IStore } from "../store.interface";
 
 export const addItemToCart = (
   product: IProductProps,
   countBy = 1
-): ThunkAction<void, IAppStore, null, Action<string>> => (dispatch, getState) => {
+): ThunkAction<void, IStore, null, Action<string>> => (dispatch, getState) => {
 
   const cart = getState().cart;
 
@@ -29,7 +29,7 @@ export const addItemToCart = (
 export const removeItem = (
   product: IProductProps,
   countBy = 1
-): ThunkAction<void, IAppStore, null, Action<string>> => (dispatch, getState) => {
+): ThunkAction<void, IStore, null, Action<string>> => (dispatch, getState) => {
 
   const cart = getState().cart;
 

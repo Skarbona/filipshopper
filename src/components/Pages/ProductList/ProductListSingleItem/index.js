@@ -48,14 +48,18 @@ const ProductListSingleItem = ({
     </div>
   );
 };
-const mapStateToProps = ({ init: { translations } }) => {
+const mapStateToProps = ({ app: { translations } }) => {
   return {
-    buttons: translations ? translations.buttons : null,
-    currency: translations ? translations.currency.short : null
+    buttons: translations && translations.buttons,
+    currency: translations.currency && translations.currency.short
   };
+};
+
+const mapDispatchToProps = {
+  addItemToCart: cartEpics.addItemToCart
 };
 
 export default connect(
   mapStateToProps,
-  { addItemToCart: cartEpics.addItemToCart }
+  mapDispatchToProps,
 )(ProductListSingleItem);

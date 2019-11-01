@@ -47,15 +47,20 @@ const CartTable = (
   }
 };
 
-const mapStateToProps = ({ cart, init: { translations } }) => {
+const mapStateToProps = ({ cart, app: { translations } }) => {
   return {
     cartProducts: cart,
-    cartTotal: cart.total ? cart.total : 0,
+    cartTotal: cart.total,
     translations
   };
 };
 
+const mapDispatchToProps = {
+  addItemToCart: cartEpics.addItemToCart,
+  removeItemFromCart: cartEpics.removeItem
+};
+
 export default connect(
   mapStateToProps,
-  { addItemToCart: cartEpics.addItemToCart, removeItemFromCart: cartEpics.removeItem }
+  mapDispatchToProps
 )(CartTable);

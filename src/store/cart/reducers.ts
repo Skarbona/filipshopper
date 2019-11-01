@@ -1,9 +1,10 @@
-import { initialState } from "./initialState";
+import { cartInitialState } from "./initialState";
 import { ICartStore } from "./cart.types";
 import { CartActionsEnum } from "./cart.enum";
 import { ICartAction } from "./cart.interface";
+import { Reducer } from "redux";
 
-export default (state = initialState, action: ICartAction): ICartStore => {
+const reducer: Reducer<ICartStore, ICartAction> = (state = cartInitialState, action: ICartAction) => {
 
   switch (action.type) {
 
@@ -57,3 +58,5 @@ export default (state = initialState, action: ICartAction): ICartStore => {
       return state;
   }
 };
+
+export default reducer;

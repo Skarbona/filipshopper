@@ -33,26 +33,29 @@ const ProductSinglePage = ({ product, buttons, addItemToCart, currency }) => {
   }
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = ({ app }, ownProps) => {
   let product = null;
   let singleProduct = null;
-  if (state.init) {
-    singleProduct = filter(state.init.products, o => o.id === ownProps.match.params.id);
+  const translations = app.translations;
+  if (app) {
+    singleProduct = filter(app.products, o => o.id === ownProps.match.params.id);
   }
 
   if (singleProduct) {
     product = singleProduct[0];
   }
   return {
-    buttons: state.init.translations ? state.init.translations.buttons : null,
-    currency: state.init.translations
-      ? state.init.translations.currency.short
-      : null,
-    product
+    buttons: translations && translations.buttons,
+    currency: translations.currency && translations.currency.short,
+    product,
   };
+};
+
+const mapDispatchToProps = {
+  addItemToCart: cartEpics.addItemToCart
 };
 
 export default connect(
   mapStateToProps,
-  { addItemToCart: cartEpics.addItemToCart }
+  mapDispatchToProps,
 )(ProductSinglePage);

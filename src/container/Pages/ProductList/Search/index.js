@@ -1,15 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setSearchProducts } from "../../../../store/actions/search";
+import * as searchEpics from "../../../../store/search/epic";
 import { filter } from "lodash";
 
 class Search extends React.Component {
   onSearchChange = e => {
     const { products, setSearchProducts } = this.props;
+    const value = e.target.value;
     e.preventDefault();
-    let filteredProducts = filter(products, o => o.title.includes(e.target.value));
+    const filteredProducts = filter(products, o => o.title.includes(value));
 
-    if (e.target.value) {
+    if (value) {
       setSearchProducts(filteredProducts);
     } else {
       setSearchProducts(null);
@@ -25,7 +26,7 @@ class Search extends React.Component {
             <i className="material-icons prefix">search</i>
             <input
               id="icon_prefix"
-              onChange={e => onSearchChange(e)}
+              onChange={onSearchChange}
               type="search"
               className="validate"
             />
@@ -37,13 +38,17 @@ class Search extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ app }) => {
   return {
-    products: state.init.products
+    products: app.products
   };
+};
+
+const mapDispatchToProps = {
+  setSearchProducts: searchEpics.setSearchProducts
 };
 
 export default connect(
   mapStateToProps,
-  { setSearchProducts }
+  mapDispatchToProps,
 )(Search);
