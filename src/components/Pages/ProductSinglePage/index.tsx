@@ -3,7 +3,8 @@ import { connect, MapDispatchToPropsParam } from "react-redux";
 import { filter } from "lodash";
 
 import MainContent from "./Elements/MainContent";
-import SinglePageCollapse from "./Elements/SinglePageCollapse.js";
+import Loading from "../../Elements/Loading";
+import SinglePageCollapse from "./Elements/SinglePageCollapse";
 import * as cartEpics from "../../../store/cart/epic";
 import { IStore } from "../../../store/store.interface";
 import {
@@ -14,14 +15,8 @@ import {
 } from "./ProductSinglePage.interface";
 
 const ProductSinglePage = ({ product, buttons, addItemToCart, currency }: IProps) => {
-  if (!product) {
-    return (
-      <h2>
-        Go to Home Page and Refresh the Page. This "error" will be handle in the
-        next step
-      </h2>
-    );
-  } // TODO: Take care about this part!!!!!!!!!!!!!!!!!!, useEffect or nice App wrapping
+
+  if (!product) return <Loading />;
 
   return (
     <div className="product-single-page">

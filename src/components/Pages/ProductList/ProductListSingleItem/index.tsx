@@ -38,14 +38,14 @@ const ProductListSingleItem = ({
         <hr/>
         <div className="card-actions">
           <Button
-            text={buttons ? buttons.addToCart : "Loading..."}
+            text={buttons.addToCart}
             to=""
             className="btn-small blue darken-1"
             icon="add"
             onClickButton={() => addItemToCart(product)}
           />
           <Button
-            text={buttons ? buttons.seeMore : "Loading..."}
+            text={buttons.seeMore}
             className="btn-small blue darken-2"
             icon="search"
             to={`/product/${id}`}

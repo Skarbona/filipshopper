@@ -5,13 +5,13 @@ import { withRouter } from "react-router-dom";
 import { IDispatchAppProps, IAppProps } from "./App.interface";
 import { IStore } from "../../store/store.interface";
 import * as appEpics from "../../store/app/epic";
-import Header from "../../container/Header/index";
-import Pages from "../Pages/index";
+import Header from "../Header/";
+import Pages from "../Pages/";
 
 
-export const App = ({ initProductData, initTranslations }: IAppProps) => {
+export const AppWrapper = ({ initProductData, initTranslations }: IAppProps) => {
 
-  useEffect(() => {
+  React.useEffect(() => {
     initProductData();
     initTranslations();
   }, []);
@@ -29,9 +29,10 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
   initTranslations: appEpics.initTranslations,
 };
 
+
 export default withRouter(
   connect<{}, IDispatchAppProps, {}, IStore>(
     null,
     mapDispatchToProps
-  )(App)
+  )(AppWrapper)
 );

@@ -13,7 +13,11 @@ export interface IProductSinglePageDispatchProps {
 }
 
 export interface IProductSinglePageOwnProps {
-
+  match: {
+    params: {
+      id: string
+    }
+  }
 }
 
 export type IProductSinglePageProps =

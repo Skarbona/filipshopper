@@ -1,4 +1,7 @@
 .product-list {
+  .product-list__item {
+    margin-left: 0!important;
+  }
   .card-actions {
     display: flex;
     justify-content: center;
