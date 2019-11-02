@@ -11,14 +11,15 @@ const methods = [
   { name: "Bank Transfer", color: "orange" }
 ];
 
-const Payment = (): IPaymentProps => {
+const Payment: React.FC<IPaymentProps> = () => {
   const [state, setState] = useState<IPaymentState>({
     paymentMethod: null,
     buttonActive: false
   });
 
-  const onPaymentClickHandler = (paymentMethod: string) => useCallback(
-    () => setState({ paymentMethod, buttonActive: false }), []);
+  const onPaymentClickHandler = useCallback(
+    (paymentMethod: string) => setState({ paymentMethod, buttonActive: true }),
+    []);
 
   return (
     <div className="payment-page">

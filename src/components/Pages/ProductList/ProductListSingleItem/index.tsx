@@ -1,23 +1,30 @@
 import React from "react";
-import { connect } from "react-redux";
-import * as cartEpics from "../../../../store/cart/epic";
+import { connect, MapDispatchToPropsParam } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Button from "../../../Elements/Button";
+import * as cartEpics from "../../../../store/cart/epic";
+import { IStore } from "../../../../store/store.interface";
+import {
+  IProductListSingleItemDispatchProps as IDispatchProps,
+  IProductListSingleItemOwnProps as IOwnProps,
+  IProductListSingleItemProps as IProps,
+  IProductListSingleItemStoreProps as IStoreProps,
+} from "./ProductListSingleItem.interface";
 
 const ProductListSingleItem = ({
   product,
   buttons,
   currency,
   addItemToCart
-}) => {
+}: IProps) => {
   const { image, title, price, id } = product;
   return (
     <div className="col s12 m6 l4 xl4 animated fadeIn product-list__item">
       <div className="card">
         <div className="card-image waves-effect waves-block waves-light">
           <Link to={`/product/${id}`}>
-            <img src={image} alt={title} />
+            <img src={image} alt={title}/>
           </Link>
         </div>
         <div className="card-content">
@@ -28,7 +35,7 @@ const ProductListSingleItem = ({
             {price} {currency}
           </span>
         </div>
-        <hr />
+        <hr/>
         <div className="card-actions">
           <Button
             text={buttons ? buttons.addToCart : "Loading..."}
@@ -48,18 +55,18 @@ const ProductListSingleItem = ({
     </div>
   );
 };
-const mapStateToProps = ({ app: { translations } }) => {
+const mapStateToProps = ({ app: { translations } }: IStore): IStoreProps => {
   return {
-    buttons: translations && translations.buttons,
-    currency: translations.currency && translations.currency.short
+    buttons: translations.buttons,
+    currency: translations.currency.short
   };
 };
 
-const mapDispatchToProps = {
+const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
   addItemToCart: cartEpics.addItemToCart
 };
 
-export default connect(
+export default connect<IStoreProps, IDispatchProps, IOwnProps, IStore>(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(ProductListSingleItem);

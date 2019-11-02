@@ -4,7 +4,7 @@ import { ICheckoutProps } from "./Checkout.interface";
 import PageTitle from "../../Elements/Title";
 import CheckoutForm from "./Form/CheckoutForm";
 
-const Checkout = (): ICheckoutProps => {
+const Checkout: React.FC<ICheckoutProps> = () => {
   return (
     <div className="checkout-page">
       <PageTitle title="Checkout"/>

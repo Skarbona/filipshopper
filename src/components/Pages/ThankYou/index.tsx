@@ -3,7 +3,7 @@ import React from "react";
 import PageTitle from "../../Elements/Title";
 import { IThankYouProps } from "./ThankYou.interface";
 
-const ThankYou = (): IThankYouProps => (
+const ThankYou: React.FC<IThankYouProps> = () => (
   <div className="thankyou-page">
     <PageTitle title="Thank You!"/>
     <div className="thankyou-page__message">
