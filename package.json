@@ -15,7 +15,7 @@
     "@types/react-router-dom": "^5.1.1",
     "@types/redux-form": "^8.1.9",
     "axios": "^0.18.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
