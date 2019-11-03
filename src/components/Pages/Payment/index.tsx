@@ -29,7 +29,7 @@ const Payment: React.FC<IPaymentProps> = () => {
             <PaymentMethod
               key={method.name}
               color={method.color}
-              active={state.paymentMethod === method.name}
+              active={state && state.paymentMethod === method.name}
               onClick={onPaymentClickHandler}
               name={method.name}
             />
@@ -41,7 +41,7 @@ const Payment: React.FC<IPaymentProps> = () => {
           text="Pay Now!"
           to="/thankyou"
           className="btn-large red"
-          disabled={!state.buttonActive}
+          disabled={state && !state.buttonActive}
         />
       </div>
     </div>

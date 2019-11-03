@@ -13,7 +13,7 @@ import {
   ISinglePageCollapseOwnProps as IOwnProps,
 } from "./SinglePageCollapse.interface";
 
-const SinglePageCollapse = ({ reviews, initReviews, extra }: IProps) => {
+export const SinglePageCollapseWrapper = ({ reviews, initReviews, extra }: IProps) => {
 
   const collapse = useRef<HTMLUListElement>(null);
 
@@ -22,12 +22,14 @@ const SinglePageCollapse = ({ reviews, initReviews, extra }: IProps) => {
   ));
 
   useEffect(() => {
-    initReviews();
-  }, []);
+    if (!reviews.length) {
+      initReviews();
+    }
+  }, [reviews]);
 
   useEffect(() => {
-    const elems = collapse.current;
-    if (elems)  M.Collapsible.init(elems);
+    const elements = collapse.current;
+    if (elements)  M.Collapsible.init(elements);
   });
 
 
@@ -57,7 +59,7 @@ const SinglePageCollapse = ({ reviews, initReviews, extra }: IProps) => {
 
 const mapStateToProps = ({ reviews }: IStore, ownProps: IOwnProps): IStoreProps => {
   return {
-    reviews: reviews.reviews[ownProps.id]
+    reviews: reviews.reviews[ownProps.id] || []
   };
 };
 
@@ -68,4 +70,4 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 export default connect<IStoreProps, IDispatchProps, IOwnProps, IStore>(
   mapStateToProps,
   mapDispatchToProps
-)(SinglePageCollapse);
+)(SinglePageCollapseWrapper);

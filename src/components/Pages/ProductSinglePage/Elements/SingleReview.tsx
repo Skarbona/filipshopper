@@ -16,20 +16,17 @@ const amountStarGenerator = (number: number, type: StarsEnum) => {
   return arrayHandler;
 };
 
-const SingleReview = ({ review }: ISingleReviewProps) => {
-  if (!review) return <div>No Reviews!</div>;
-
-  return (
-    <li className="collection-item avatar">
-      <img src="https://via.placeholder.com/150/" alt="" className="circle"/>
-      <span className="title">{review.name}</span>
-      <p> {review.opinion}</p>
-      <span className="secondary-content">
+const SingleReview = ({ review }: ISingleReviewProps) => (
+  <li className="collection-item avatar">
+    <img src="https://via.placeholder.com/150/" alt="" className="circle"/>
+    <span className="title">{review.name}</span>
+    <p> {review.opinion}</p>
+    <span className="secondary-content">
         {amountStarGenerator(review.stars, StarsEnum.full)}
-        {amountStarGenerator(5 - review.stars, StarsEnum.empty)}
+      {amountStarGenerator(5 - review.stars, StarsEnum.empty)}
       </span>
-    </li>
-  );
-};
+  </li>
+);
+
 
 export default SingleReview;

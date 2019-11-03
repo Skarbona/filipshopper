@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { Link } from "react-router-dom";
 
 import TableProducts from "../TableProducts";
-import { productsMock } from "../../../../../mocks";
+import { productsMock } from "../../../../../mocks/products";
 import { appInitialState } from "../../../../../store/app/initialState";
 import { ITableProducts } from "../TableProducts.interface";
 import Button from "../../../../Elements/Button";

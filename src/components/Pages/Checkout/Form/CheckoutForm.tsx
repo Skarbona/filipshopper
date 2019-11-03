@@ -8,7 +8,7 @@ import { IStore } from "../../../../store/store.interface";
 import { ICartIconDispatchProps } from "../../../Header/CartIcon/CartIcon.interface";
 import { CheckFormType } from "./CheckoutForm.interface";
 
-const CheckoutForm: CheckFormType = ({ handleSubmit, pristine, clearCart }) => {
+export const CheckoutFormWrapper: CheckFormType = ({ handleSubmit, pristine, clearCart }) => {
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col s12">
@@ -63,7 +63,7 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 const CheckoutFormConnect = connect<{}, ICartIconDispatchProps, {}, IStore>(
   null,
   mapDispatchToProps
-)(CheckoutForm);
+)(CheckoutFormWrapper);
 
 export default reduxForm({
   form: "checkoutForm"

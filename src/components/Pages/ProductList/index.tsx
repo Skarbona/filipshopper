@@ -6,8 +6,9 @@ import ProductListSingleItem from "./ProductListSingleItem/";
 import { IProductListProps, IProductListStoreProps } from "./ProductList.interface";
 import { IStore } from "../../../store/store.interface";
 
-const ProductList = ({ products, searchProducts }: IProductListProps) => {
+export const ProductListWrapper = ({ products, searchProducts }: IProductListProps) => {
   const productsToMap = searchProducts.searching ? searchProducts.products : products;
+
   return (
     <React.Fragment>
       <div className="product-list">
@@ -30,4 +31,4 @@ const mapStateToProps = ({ app, search }: IStore): IProductListStoreProps => {
   };
 };
 
-export default connect<IProductListStoreProps, {}, {}, IStore>(mapStateToProps)(ProductList);
+export default connect<IProductListStoreProps, {}, {}, IStore>(mapStateToProps)(ProductListWrapper);

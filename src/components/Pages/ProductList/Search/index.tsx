@@ -6,7 +6,7 @@ import { filter } from "lodash";
 import { IStore } from "../../../../store/store.interface";
 import { ISearchDispatchProps, ISearchProps, ISearchStoreProps } from "./Search.interface";
 
-const Search = ({ products, setSearchProducts }: ISearchProps) => {
+export const SearchWrapper = ({ products, setSearchProducts }: ISearchProps) => {
 
   const onSearchChange = useCallback((e) => {
     const value = e.target.value;
@@ -16,20 +16,18 @@ const Search = ({ products, setSearchProducts }: ISearchProps) => {
   }, []);
 
   return (
-    <React.Fragment>
-      <div className="row">
-        <form className="input-field col s12">
-          <i className="material-icons prefix">search</i>
-          <input
-            id="icon_prefix"
-            onChange={onSearchChange}
-            type="search"
-            className="validate"
-          />
-          <label htmlFor="icon_prefix">Search Products</label>
-        </form>
-      </div>
-    </React.Fragment>
+    <div className="row">
+      <form className="input-field col s12">
+        <i className="material-icons prefix">search</i>
+        <input
+          id="icon_prefix"
+          onChange={onSearchChange}
+          type="search"
+          className="validate"
+        />
+        <label htmlFor="icon_prefix">Search Products</label>
+      </form>
+    </div>
   );
 };
 
@@ -47,4 +45,4 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 export default connect<ISearchStoreProps, ISearchDispatchProps, {}, IStore>(
   mapStateToProps,
   mapDispatchToProps
-)(Search);
+)(SearchWrapper);

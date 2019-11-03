@@ -7,7 +7,7 @@ import CartSummary from "../CartSummary";
 import Button from "../../../../Elements/Button";
 import { ICartTableProps } from "../CartTable.interface";
 import { appInitialState } from "../../../../../store/app/initialState";
-import { productsMock } from "../../../../../mocks";
+import { productsMock } from "../../../../../mocks/products";
 
 
 describe("<CartTable /> component", () => {

@@ -12,7 +12,7 @@ import { ICartAction } from "./cart/cart.interface";
 import { ISearchAction } from "./search/search.interface";
 import { IReviewsAction } from "./reviews/reviews.interface";
 
-const storeInitialState: IStore = {
+export const storeInitialState: IStore = {
   app: appInitialState,
   cart: cartInitialState,
   search: searchInitialState,

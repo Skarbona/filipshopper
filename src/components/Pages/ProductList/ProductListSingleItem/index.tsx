@@ -12,7 +12,7 @@ import {
   IProductListSingleItemStoreProps as IStoreProps,
 } from "./ProductListSingleItem.interface";
 
-const ProductListSingleItem = ({
+export const ProductListSingleItemWrapper = ({
   product,
   buttons,
   currency,
@@ -69,4 +69,4 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 export default connect<IStoreProps, IDispatchProps, IOwnProps, IStore>(
   mapStateToProps,
   mapDispatchToProps
-)(ProductListSingleItem);
+)(ProductListSingleItemWrapper);

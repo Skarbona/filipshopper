@@ -14,7 +14,7 @@ import {
   IProductSinglePageStoreProps as IStoreProps,
 } from "./ProductSinglePage.interface";
 
-const ProductSinglePage = ({ product, buttons, addItemToCart, currency }: IProps) => {
+export const ProductSinglePageWrapper = ({ product, buttons, addItemToCart, currency }: IProps) => {
 
   if (!product) return <Loading />;
 
@@ -54,4 +54,4 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 export default connect <IStoreProps, IDispatchProps, IOwnProps, IStore> (
   mapStateToProps,
     mapDispatchToProps
-)(ProductSinglePage);
+)(ProductSinglePageWrapper);
