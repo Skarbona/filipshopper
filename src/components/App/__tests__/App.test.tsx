@@ -32,6 +32,4 @@ describe("<App /> component", () => {
     expect(props.initTranslations).toHaveBeenCalledTimes(1);
   });
 
-  // TODO: Check if store is updated
-
 });

@@ -14,7 +14,7 @@ import {
 } from "./CartTable.interface";
 import { IStore } from "../../../../store/store.interface";
 
-const CartTable = (
+export const CartTableWrapper = (
   {
     cartTotal,
     cartProducts,
@@ -41,7 +41,11 @@ const CartTable = (
         />
         </tbody>
       </table>
-      <CartSummary currency={currency} messages={messages} total={cartTotal}/>
+      <CartSummary
+        currency={currency}
+        messages={messages}
+        total={cartTotal}
+      />
       <Button
         to="/checkout"
         className="btn-large blue darken-3"
@@ -67,4 +71,4 @@ const mapDispatchToProps: MapDispatchToPropsParam<any, any> = {
 export default connect<ICartTableStoreProps, ICartTableDispatchProps, ICartTableOwnProps, IStore>(
   mapStateToProps,
   mapDispatchToProps
-)(CartTable);
+)(CartTableWrapper);

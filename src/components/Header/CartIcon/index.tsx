@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ICartIconProps, ICartIconStoreProps } from "./CartIcon.interface";
 import { IStore } from "../../../store/store.interface";
 
-const CartIcon = ({ itemsNumber }: ICartIconProps) => (
+export const CartIconWrapper = ({ itemsNumber }: ICartIconProps) => (
   <div className="cart-icon">
     <span className="cart-icon__amount">{itemsNumber}</span>
     <Link to="/cart">
@@ -20,4 +20,4 @@ const mapStateToProps = ({ cart }: IStore) => {
   };
 };
 
-export default connect<ICartIconStoreProps, {}, {}, IStore>(mapStateToProps)(CartIcon);
+export default connect<ICartIconStoreProps, {}, {}, IStore>(mapStateToProps)(CartIconWrapper);

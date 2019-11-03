@@ -8,8 +8,8 @@ const Header: React.FC<{}> = () => {
   const sideNav = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    const elems = sideNav.current;
-    if (elems) M.Sidenav.init(elems);
+    const element = sideNav.current;
+    if (element) M.Sidenav.init(element);
   }, []);
 
   return (
