@@ -1,104 +1,83 @@
-import configureStore from "redux-mock-store";
-import thunk from "redux-thunk";
-
-import { storeInitialState } from "../../store";
 import * as appActions from "../actions";
-import { AppActionsEnum } from "../app.enum";
 import { productsMock } from "../../../mocks/products";
 import { appInitialState } from "../initialState";
-
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+import appReducer from "../reducers";
 
 describe("App Store Reducers", () => {
 
-  let store: any;
   const products = productsMock(2);
   const translations = appInitialState.translations;
+  translations.buttons.seeMore = "See More";
 
   beforeEach(() => {
-    store = mockStore(storeInitialState);
+
+  });
+
+  it("should return initial state", () => {
+    const reducer =  appReducer(undefined, {} as any);
+    expect(reducer).toEqual(appInitialState);
   });
 
   it("should handle INIT_PRODUCT_DATA reducer", () => {
-
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_PRODUCT_DATA,
-    }];
-
-    store.dispatch(appActions.initProductDataAction());
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
-
+    const reducer =  appReducer(undefined, appActions.initProductDataAction());
+    expect(reducer).toEqual(appInitialState);
   });
 
 
   it("should handle INIT_PRODUCT_DATA_SUCCESS reducer", () => {
+    const reducer =  appReducer(undefined, appActions.initProductDataSuccessAction(products));
 
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_PRODUCT_DATA_SUCCESS,
-      payload: products,
-    }];
+    const expectedState = {
+      ...appInitialState,
+      products,
+      error: false
+    };
 
-    store.dispatch(appActions.initProductDataSuccessAction(products));
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
+    expect(reducer).toEqual(expectedState);
 
   });
 
   it("should handle INIT_PRODUCT_DATA_FAILED reducer", () => {
+    const reducer =  appReducer(undefined, appActions.initProductDataFailedAction());
 
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_PRODUCT_DATA_FAILED,
-    }];
+    const expectedState = {
+      ...appInitialState,
+      error: true
+    };
 
-    store.dispatch(appActions.initProductDataFailedAction(products));
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
+    expect(reducer).toEqual(expectedState);
 
   });
 
   it("should handle INIT_TRANSLATIONS_SUCCESS reducer", () => {
+    const reducer =  appReducer(undefined, appActions.initTranslationsSuccessAction(translations));
 
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_TRANSLATIONS_SUCCESS,
-      payload: translations,
-    }];
+    const expectedState = {
+      ...appInitialState,
+      translations,
+      error: false
+    };
 
-    store.dispatch(appActions.initTranslationsSuccessAction(translations));
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
+    expect(reducer).toEqual(expectedState);
 
   });
 
   it("should handle INIT_TRANSLATIONS reducer", () => {
+    const reducer =  appReducer(undefined, appActions.initTranslationsAction());
 
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_TRANSLATIONS,
-    }];
-
-    store.dispatch(appActions.initTranslationsAction());
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
+    expect(reducer).toEqual(appInitialState);
 
   });
 
-  it("should handle INIT_TRANSLATIONS_FALIED reducer", () => {
+  it("should handle INIT_TRANSLATIONS_FAILED reducer", () => {
+    const reducer =  appReducer(undefined, appActions.initTranslationsFailedAction());
 
-    const expectedActions = [{
-      type: AppActionsEnum.INIT_TRANSLATIONS_FALIED,
-    }];
+    const expectedState = {
+      ...appInitialState,
+      error: true
+    };
 
-    store.dispatch(appActions.initTranslationsFailedAction());
-    const actions = store.getActions();
-
-    expect(actions).toEqual(expectedActions);
+    expect(reducer).toEqual(expectedState);
 
   });
 
