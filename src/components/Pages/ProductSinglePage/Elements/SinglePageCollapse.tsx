@@ -13,7 +13,7 @@ import {
   ISinglePageCollapseOwnProps as IOwnProps,
 } from "./SinglePageCollapse.interface";
 
-export const SinglePageCollapseWrapper = ({ reviews, initReviews, extra }: IProps) => {
+export const SinglePageCollapseWrapper: React.FC<IProps> = ({ reviews, initReviews, extra }) => {
 
   const collapse = useRef<HTMLUListElement>(null);
 

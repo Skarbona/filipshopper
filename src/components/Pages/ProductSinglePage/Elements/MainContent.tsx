@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../Elements/Button";
 import { IMainContentProps } from "./MainContent.interface";
 
-const MainContent = ({ product, addItemToCart, buttons, currency }: IMainContentProps) => {
+const MainContent: React.FC<IMainContentProps> = ({ product, addItemToCart, buttons, currency }) => {
 
   const { id, image, price, title } = product;
 

@@ -6,7 +6,7 @@ import ProductListSingleItem from "./ProductListSingleItem/";
 import { IProductListProps, IProductListStoreProps } from "./ProductList.interface";
 import { IStore } from "../../../store/store.interface";
 
-export const ProductListWrapper = ({ products, searchProducts }: IProductListProps) => {
+export const ProductListWrapper: React.FC<IProductListProps> = ({ products, searchProducts }) => {
   const productsToMap = searchProducts.searching ? searchProducts.products : products;
 
   return (

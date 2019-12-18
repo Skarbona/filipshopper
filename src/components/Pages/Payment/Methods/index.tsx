@@ -2,7 +2,7 @@ import React from "react";
 
 import { IMethodsProps } from "./Methods.interface";
 
-const PaymentMethod = ({ name, color, onClick, active }: IMethodsProps) => (
+const PaymentMethod: React.FC<IMethodsProps> = ({ name, color, onClick, active }) => (
   <div
     className="col s12 m6 l4"
     onClick={() => onClick(name)}

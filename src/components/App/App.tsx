@@ -9,7 +9,7 @@ import Header from "../Header/";
 import Pages from "../Pages/";
 
 
-export const AppWrapper = ({ initProductData, initTranslations }: IAppProps) => {
+export const AppWrapper: React.FC<IAppProps> = ({ initProductData, initTranslations }) => {
 
   React.useEffect(() => {
     initProductData();

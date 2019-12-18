@@ -6,7 +6,7 @@ import { filter } from "lodash";
 import { IStore } from "../../../../store/store.interface";
 import { ISearchDispatchProps, ISearchProps, ISearchStoreProps } from "./Search.interface";
 
-export const SearchWrapper = ({ products, setSearchProducts }: ISearchProps) => {
+export const SearchWrapper: React.FC<ISearchProps> = ({ products, setSearchProducts }) => {
 
   const onSearchChange = useCallback((e) => {
     const value = e.target.value;

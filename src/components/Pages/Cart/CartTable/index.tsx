@@ -14,14 +14,14 @@ import {
 } from "./CartTable.interface";
 import { IStore } from "../../../../store/store.interface";
 
-export const CartTableWrapper = (
+export const CartTableWrapper: React.FC<ICartTableProps> = (
   {
     cartTotal,
     cartProducts,
     translations,
     addItemToCart,
     removeItemFromCart
-  }: ICartTableProps
+  }
 ) => {
   const { messages, cartTitles, currency } = translations;
 

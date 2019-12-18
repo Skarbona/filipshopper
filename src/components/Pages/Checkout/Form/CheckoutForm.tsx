@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { connect, MapDispatchToPropsParam } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 

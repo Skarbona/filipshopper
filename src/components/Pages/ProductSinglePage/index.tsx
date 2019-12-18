@@ -14,7 +14,7 @@ import {
   IProductSinglePageStoreProps as IStoreProps,
 } from "./ProductSinglePage.interface";
 
-export const ProductSinglePageWrapper = ({ product, buttons, addItemToCart, currency }: IProps) => {
+export const ProductSinglePageWrapper: React.FC<IProps> = ({ product, buttons, addItemToCart, currency }) => {
 
   if (!product) return <Loading />;
 

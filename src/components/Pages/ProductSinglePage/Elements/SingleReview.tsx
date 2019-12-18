@@ -16,7 +16,7 @@ const amountStarGenerator = (number: number, type: StarsEnum) => {
   return arrayHandler;
 };
 
-const SingleReview = ({ review }: ISingleReviewProps) => (
+const SingleReview: React.FC<ISingleReviewProps> = ({ review }) => (
   <li className="collection-item avatar">
     <img src="https://via.placeholder.com/150/" alt="" className="circle"/>
     <span className="title">{review.name}</span>

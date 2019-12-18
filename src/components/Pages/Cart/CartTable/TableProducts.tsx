@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import Button from "../../../Elements/Button";
 import { ITableProducts } from "./TableProducts.interface";
 
-const TableProducts = ({
+const TableProducts: React.FC<ITableProducts> = ({
   products,
   currency,
   addItemToCart,
   removeItemFromCart
-}: ITableProducts) => (
+}) => (
   <React.Fragment>
     {Object.keys(products).map(key => {
       const product = products[parseInt(key)];
